@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+.vercel/
+.vs/
+bin/
+obj/
+artifacts/
+App_Data/*.db
+App_Data/*.db-shm
+App_Data/*.db-wal
+*.csproj.user
+App_Data/keys/

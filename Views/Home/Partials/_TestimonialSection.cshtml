@@ -1,0 +1,11 @@
+@model IReadOnlyList<WebApplication2.Models.TestimonialCard>
+
+<section class="testimonial-section" id="our-story">
+    <div class="testimonial-heading"><p class="eyebrow" data-en="A little love from you" data-hi="आपका प्यार, हमारी खुशी">A little love from you</p><h2><span data-en="Made to share." data-hi="बाँटने के लिए बना।">Made to share.</span><br /><em data-en="Made to remember." data-hi="यादगार स्वाद।">Made to remember.</em></h2><p data-en="We feel lucky to be part of your tables, your milestones, and all the in-between moments." data-hi="आपके परिवार और रोज़मर्रा के खास पलों का हिस्सा बनकर हमें खुशी होती है।">We feel lucky to be part of your tables, your milestones, and all the in-between moments.</p><div class="review-score"><span aria-label="5 out of 5 stars">★★★★★</span><strong>4.9 / 5</strong><small data-en="from our lovely customers" data-hi="हमारे प्यारे ग्राहकों की ओर से">from our lovely customers</small></div></div>
+    <div class="testimonial-grid">
+        @foreach (var testimonial in Model)
+        {
+            <article class="testimonial-card"><div class="quote-stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote><span data-en="“@testimonial.Quote”" data-hi="“@testimonial.QuoteHindi”">“@testimonial.Quote”</span></blockquote><div class="customer"><span class="customer-avatar">@testimonial.Initials</span><span><strong>@testimonial.CustomerName</strong><small>@testimonial.Location</small></span></div></article>
+        }
+    </div>
+</section>

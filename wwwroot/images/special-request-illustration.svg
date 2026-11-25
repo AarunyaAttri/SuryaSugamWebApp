@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 166" role="img" aria-labelledby="title description">
+  <title id="title">Bakery treats</title>
+  <desc id="description">A cheerful pink illustration of cakes, a donut, a cupcake, and fresh pastries.</desc>
+  <rect width="250" height="166" fill="#ffe4ec"/>
+  <path d="M0 139c16-8 26 8 43 0s27 7 44 0 29 8 46 0 29 7 46 0 29 8 44 0 19 2 27 0v27H0Z" fill="#ffb5ce"/>
+  <path d="M0 105h250M0 126h250" fill="none" stroke="#ec82a7" stroke-width="2"/>
+  <g stroke="#34262a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+	<path d="M60 42V18" fill="none" stroke-width="4"/>
+	<path d="M56 19c0-5 8-5 8 0v5h-8Z" fill="#ffd46a"/>
+	<path d="M17 51h92v32H17z" fill="#ffd1dd"/>
+	<path d="M12 48h102v10H12z" fill="#ec6ca0"/>
+	<path d="M12 48c0 12 16 12 16 0 0 12 16 12 16 0 0 12 16 12 16 0 0 12 16 12 16 0 0 12 16 12 16 0 0 12 16 12 16 0" fill="#f27bab"/>
+	<path d="M24 83h79l-9 12H33z" fill="#f4a8ba"/>
+	<path d="M54 69c5-9 17-11 25-5 9 7 10 18 2 26l-15 13-16-13c-8-7-6-16 4-21Z" fill="#f6ca83"/>
+	<path d="M65 70c5-5 12-4 16 1 4 5 3 10-2 14l-11 10-12-10c-5-5-4-10 1-14Z" fill="#fff0c8"/>
+	<path d="M109 59a25 25 0 1 1 50 0 25 25 0 0 1-50 0Z" fill="#ed75a1"/>
+	<path d="M124 59a10 10 0 1 0 20 0 10 10 0 0 0-20 0Z" fill="#ffe4ec"/>
+	<path d="m119 42 3-4m9-4 1 5m10 1 4-3m5 12 5 1m-13 22 3 4m-19-3-2 5m-10-14-5 1" fill="none" stroke="#fff2bd" stroke-width="2.5"/>
+	<path d="M171 75c1-13 12-22 26-21 11 1 18 8 19 19l17 3v18h-62Z" fill="#f7bd4c"/>
+	<path d="M171 77c5-9 11-13 17-9 4-12 17-12 22-1 7-5 14-1 16 9l8 1" fill="#ffc95e"/>
+	<path d="M178 83h46m-37-4 2-5m13 5 2-7m12 7 3-5" fill="none" stroke="#d58b39" stroke-width="2"/>
+	<path d="M28 105c5-13 17-18 29-13l9 8 8-7c11-6 22-1 26 11l-8 10H37Z" fill="#d99a58"/>
+	<path d="M42 102c-2-9 5-15 14-14m5 12c-1-8 4-14 11-15m4 14c2-7 8-10 14-8" fill="none" stroke="#9b5b3e" stroke-width="2.5"/>
+	<path d="M123 102h25l-3 25h-19z" fill="#f28bb0"/>
+	<path d="M120 103c0-12 31-12 31 0Z" fill="#fff1dc"/>
+	<path d="M128 98c3-8 13-8 16 0" fill="none" stroke="#e98bad" stroke-width="6"/>
+	<path d="M135 91c-4-4 2-7 0-11m7 11c-4-4 2-7 0-11" fill="none" stroke="#f3bb47" stroke-width="2.5"/>
+	<path d="M122 111h27m-25 7h23m-21 7h19" fill="none" stroke="#d34e86" stroke-width="2"/>
+	<path d="M106 137h61m-52 5h44m-35-10h24" fill="none" stroke="#34262a" stroke-width="2.5"/>
+  </g>
+  <circle cx="11" cy="92" r="3" fill="#fff7f8"/>
+  <circle cx="240" cy="112" r="4" fill="#fff7f8"/>
+  <circle cx="237" cy="37" r="3" fill="#f18bac"/>
+  <circle cx="8" cy="25" r="3" fill="#f18bac"/>
+</svg>

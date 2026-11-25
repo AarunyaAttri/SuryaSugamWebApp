@@ -1,0 +1,57 @@
+﻿@{
+    var cartCount = ViewData["CartCount"] is int count ? count : 0;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fbf8f2" />
+    <meta name="description" content="Fresh Fans, CreamRoll, and Toast from SuryaSugam Bakery in Mathura." />
+    <title>@ViewData["Title"] · SuryaSugam Bakery</title>
+    <link rel="icon" type="image/svg+xml" href="~/images/surya-sugam-bakery-logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <a class="skip-link" href="#main-content" data-en="Skip to content" data-hi="मुख्य सामग्री पर जाएँ">Skip to content</a>
+    <div class="announcement-bar"><span data-en="Freshly baked in Mathura — made for your tea-time" data-hi="मथुरा में ताज़ा बेक किया हुआ — आपकी चाय के साथ">Freshly baked in Mathura — made for your tea-time</span><a href="/#fans"><span data-en="See today's fresh batch" data-hi="आज की ताज़ा बेकरी देखें">See today's fresh batch</span> <span aria-hidden="true">→</span></a></div>
+    <header class="site-header">
+        <div class="header-main">
+            <a class="brand" asp-controller="Home" asp-action="Index" aria-label="Surya Sugam Bakery home"><img class="brand-logo" src="~/images/surya-sugam-bakery-logo.svg" alt="Surya Sugam Bakery" /></a>
+            <div class="header-promise"><span class="promise-icon" aria-hidden="true">✳</span><span><span data-en="Made fresh daily" data-hi="हर दिन ताज़ा तैयार">Made fresh daily</span><small data-en="From Mathura" data-hi="मथुरा में">From Mathura</small></span></div>
+            <div class="header-utilities"><button class="language-toggle" type="button" data-language-toggle aria-pressed="false" aria-label="Switch page language to Hindi" data-en-aria-label="Switch page language to Hindi" data-hi-aria-label="पेज की भाषा अंग्रेज़ी करें"><span lang="hi">हिंदी</span><span aria-hidden="true">/</span><span lang="en">EN</span></button><a class="bag-link" asp-controller="Home" asp-action="Cart" aria-label="View cart, @cartCount items" data-en-aria-label="View cart, @cartCount items" data-hi-aria-label="कार्ट देखें, @cartCount आइटम"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 8H6" /><circle cx="10" cy="20" r="1" /><circle cx="18" cy="20" r="1" /></svg><span class="bag-count">@cartCount</span></a>
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open menu" data-en-aria-label="Open menu" data-hi-aria-label="मेन्यू खोलें"><span></span><span></span><span class="visually-hidden" data-en="Open menu" data-hi="मेन्यू खोलें">Open menu</span></button>
+            </div>
+        </div>
+        <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation" data-en-aria-label="Main navigation" data-hi-aria-label="मुख्य मेन्यू">
+            <ul class="main-nav">
+                <li class="nav-item"><a class="nav-icon-link" href="/#home" aria-label="Home" data-en-aria-label="Home" data-hi-aria-label="होम" title="Home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z" /></svg><span data-en="Home" data-hi="होम">Home</span></a></li>
+                <li class="nav-item"><a class="nav-icon-link" href="/#fans" aria-label="Fans" data-en-aria-label="Fans" data-hi-aria-label="फैन" title="Fans"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17.5 8.5 6l3.5 3 3.5-3 4.5 11.5H4Z" /><path d="M7 15h10M8.5 11.5h7" /></svg><span data-en="Fans" data-hi="फैन">Fans</span></a></li>
+                <li class="nav-item"><a class="nav-icon-link" href="/#creamroll" aria-label="CreamRoll" data-en-aria-label="CreamRoll" data-hi-aria-label="क्रीम रोल" title="CreamRoll"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18.5c0-5.8 2.9-12 7-12s7 6.2 7 12Z" /><path d="M9 15.5c.3-2.5 1.2-4 3-4s2.7 1.5 3 4" /></svg><span data-en="CreamRoll" data-hi="क्रीम रोल">CreamRoll</span></a></li>
+                <li class="nav-item"><a class="nav-icon-link" href="/#toast" aria-label="Toast" data-en-aria-label="Toast" data-hi-aria-label="टोस्ट" title="Toast"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 20V9a6 6 0 0 1 12 0v11Z" /><path d="M9 12v4m3-4v4m3-4v4" /></svg><span data-en="Toast" data-hi="टोस्ट">Toast</span></a></li>
+                <li class="nav-item"><a class="nav-icon-link" href="tel:+918921986080" aria-label="Call SuryaSugam Bakery" data-en-aria-label="Call SuryaSugam Bakery" data-hi-aria-label="सूर्यसुगम बेकरी को कॉल करें" title="Call SuryaSugam Bakery"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.7 3.8 9.5 3l2 4.5-2.1 1.7a15.5 15.5 0 0 0 5.4 5.4l1.7-2.1 4.5 2-.8 2.8a2 2 0 0 1-2.2 1.5A16.3 16.3 0 0 1 5.2 6a2 2 0 0 1 1.5-2.2Z" /></svg><span data-en="Call" data-hi="कॉल">Call</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-brand-column" id="store-address"><a class="brand brand-footer" asp-controller="Home" asp-action="Index" aria-label="Surya Sugam Bakery home"><img class="brand-logo" src="~/images/surya-sugam-bakery-logo.svg" alt="Surya Sugam Bakery" /></a><p data-en="Freshly made Fans, CreamRoll, and Toast for your everyday tea-time." data-hi="आपकी रोज़ की चाय के लिए ताज़ा फैन, क्रीम रोल और टोस्ट।">Freshly made Fans, CreamRoll, and Toast for your everyday tea-time.</p><address class="footer-address">Gomati Vihar, Lohaban Bagihi, Ward No.05 (Ram Nagar), Nagar Palika Mathura Food Safety Zone 2, Mathura, Uttar Pradesh -281001</address></div>
+            <div class="footer-links"><h2 data-en="Find your favourite" data-hi="अपना पसंदीदा चुनें">Find your favourite</h2><a href="/#fans" data-en="Fans" data-hi="फैन">Fans</a><a href="/#creamroll" data-en="CreamRoll" data-hi="क्रीम रोल">CreamRoll</a><a href="/#toast" data-en="Toast" data-hi="टोस्ट">Toast</a></div>
+            <div class="footer-links"><h2 data-en="Come say hello" data-hi="हमसे जुड़ें">Come say hello</h2><a href="/#our-story" data-en="Our story" data-hi="हमारी कहानी">Our story</a><a href="/#newsletter" data-en="Get in touch" data-hi="संपर्क करें">Get in touch</a><a asp-controller="Home" asp-action="Privacy" data-en="Privacy" data-hi="गोपनीयता">Privacy</a></div>
+            <div class="footer-signoff"><span class="footer-flower" aria-hidden="true">✳</span><p><span data-en="A little sweetness" data-hi="थोड़ी मिठास">A little sweetness</span><br /><span data-en="goes a long way." data-hi="बहुत खुशी देती है।">goes a long way.</span></p></div>
+        </div>
+        <div class="footer-bottom"><span>© @DateTime.Now.Year SuryaSugam Bakery. <span data-en="Made with care." data-hi="प्यार से बनाया।">Made with care.</span></span><span data-en="Freshly baked in Mathura, Uttar Pradesh" data-hi="मथुरा, उत्तर प्रदेश में ताज़ा बेक किया हुआ">Freshly baked in Mathura, Uttar Pradesh</span><a href="/#home"><span data-en="Back to the top ↑" data-hi="ऊपर जाएँ ↑">Back to the top ↑</span></a>
+        </div>
+    </footer>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,58 @@
+@model WebApplication2.Models.CustomOrderInput
+
+<section class="custom-order-section" id="custom-order">
+    <div class="custom-order-copy">
+        <p class="eyebrow" data-en="Made especially for you" data-hi="आपके लिए खास तौर पर तैयार">Made especially for you</p>
+        <h2><span data-en="Your idea," data-hi="आपकी पसंद,">Your idea,</span><br /><em data-en="freshly baked." data-hi="ताज़ा बेक की हुई।">freshly baked.</em></h2>
+        <p data-en="Planning a celebration or craving something your way? Tell us what you have in mind and our bakery will follow up with you on WhatsApp." data-hi="कोई उत्सव है या अपनी पसंद का कुछ चाहिए? हमें बताएँ और हमारी बेकरी व्हाट्सऐप पर आपसे संपर्क करेगी।">Planning a celebration or craving something your way? Tell us what you have in mind and our bakery will follow up with you on WhatsApp.</p>
+    </div>
+    <form class="custom-order-form" asp-controller="Home" asp-action="CustomOrder" method="post" data-custom-order>
+        <input asp-for="Language" type="hidden" data-custom-order-language />
+        <div asp-validation-summary="ModelOnly" class="order-validation"></div>
+        <div class="custom-order-fields">
+            <div class="option-field">
+                <label asp-for="CustomerName" data-en="Your name" data-hi="आपका नाम">Your name</label>
+                <input asp-for="CustomerName" maxlength="60" autocomplete="name" required />
+                <span asp-validation-for="CustomerName" class="field-error"></span>
+            </div>
+            <div class="option-field">
+                <label asp-for="Phone" data-en="Phone / WhatsApp number" data-hi="फ़ोन / व्हाट्सऐप नंबर">Phone / WhatsApp number</label>
+                <input asp-for="Phone" type="tel" maxlength="20" autocomplete="tel" required />
+                <span asp-validation-for="Phone" class="field-error"></span>
+            </div>
+            <div class="option-field">
+                <label asp-for="Product" data-en="What would you like?" data-hi="आप क्या ऑर्डर करना चाहेंगे?">What would you like?</label>
+                <select asp-for="Product" required>
+                    <option value="" data-en="Choose a product" data-hi="उत्पाद चुनें">Choose a product</option>
+                    <option value="Fans" data-en="Fans" data-hi="फैन">Fans</option>
+                    <option value="CreamRoll" data-en="CreamRoll" data-hi="क्रीम रोल">CreamRoll</option>
+                    <option value="Toast" data-en="Toast" data-hi="टोस्ट">Toast</option>
+                    <option value="Other bakery item" data-en="Other bakery item" data-hi="बेकरी का अन्य उत्पाद">Other bakery item</option>
+                </select>
+                <span asp-validation-for="Product" class="field-error"></span>
+            </div>
+            <div class="option-field">
+                <label asp-for="Quantity" data-en="Quantity (packs / pieces)" data-hi="मात्रा (पैक / पीस)">Quantity (packs / pieces)</label>
+                <input asp-for="Quantity" type="number" min="1" max="500" inputmode="numeric" required />
+                <span asp-validation-for="Quantity" class="field-error"></span>
+            </div>
+            <div class="option-field">
+                <label asp-for="Occasion" data-en="Occasion (optional)" data-hi="अवसर (वैकल्पिक)">Occasion (optional)</label>
+                <input asp-for="Occasion" maxlength="80" placeholder="Birthday, party, or just because" data-en-placeholder="Birthday, party, or just because" data-hi-placeholder="जन्मदिन, पार्टी या बस ऐसे ही" />
+                <span asp-validation-for="Occasion" class="field-error"></span>
+            </div>
+            <div class="option-field">
+                <label asp-for="PreferredDate" data-en="Preferred date (optional)" data-hi="पसंदीदा तारीख (वैकल्पिक)">Preferred date (optional)</label>
+                <input asp-for="PreferredDate" type="date" min="@WebApplication2.Controllers.HomeController.GetBakeryToday().ToString("yyyy-MM-dd")" />
+                <span asp-validation-for="PreferredDate" class="field-error"></span>
+            </div>
+            <div class="option-field custom-order-details-field">
+                <label asp-for="Details" data-en="Customization details" data-hi="अपनी पसंद की जानकारी">Customization details</label>
+                <textarea asp-for="Details" rows="4" maxlength="1000" placeholder="Tell us about flavours, fillings, size, packaging, or anything else you’d like." data-en-placeholder="Tell us about flavours, fillings, size, packaging, or anything else you’d like." data-hi-placeholder="स्वाद, भरावन, आकार, पैकेजिंग या अपनी अन्य पसंद बताएँ।" required></textarea>
+                <span asp-validation-for="Details" class="field-error"></span>
+            </div>
+        </div>
+        <button class="button button-dark custom-order-submit" type="submit"><span data-en="Send custom request on WhatsApp" data-hi="कस्टम अनुरोध व्हाट्सऐप पर भेजें">Send custom request on WhatsApp</span> <span aria-hidden="true">↗</span></button>
+        <p class="custom-order-note" data-en="Your request opens as a WhatsApp message to SuryaSugam Bakery. The bakery will confirm availability, pricing, and delivery with you." data-hi="आपका अनुरोध सूर्यसुगम बेकरी को व्हाट्सऐप संदेश के रूप में खुलेगा। बेकरी उपलब्धता, कीमत और डिलीवरी की पुष्टि आपसे करेगी।">Your request opens as a WhatsApp message to SuryaSugam Bakery. The bakery will confirm availability, pricing, and delivery with you.</p>
+    </form>
+</section>

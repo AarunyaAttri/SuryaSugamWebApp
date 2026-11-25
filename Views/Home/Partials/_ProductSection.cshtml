@@ -1,0 +1,26 @@
+@model WebApplication2.Models.ProductSectionViewModel
+
+<section class="section product-section" id="@Model.Id">
+    <div class="section-heading">
+        <div><p class="eyebrow"><span data-en="@Model.Eyebrow" data-hi="@Model.EyebrowHindi">@Model.Eyebrow</span></p><h2><span data-en="@Model.Title" data-hi="@Model.TitleHindi">@Model.Title</span></h2></div>
+        <div class="section-heading-side"><p class="section-intro"><span data-en="@Model.Description" data-hi="@Model.DescriptionHindi">@Model.Description</span></p><a class="text-link" href="@Model.LinkUrl"><span data-en="@Model.LinkLabel" data-hi="@Model.LinkLabelHindi">@Model.LinkLabel</span> <span aria-hidden="true">→</span></a></div>
+    </div>
+    <div class="product-grid">
+        @foreach (var product in Model.Products)
+        {
+            var message = System.Uri.EscapeDataString($"Hello SuryaSugam Bakery, I would like to order {product.Name} ({product.Price}).");
+            <article class="product-card">
+                <a class="product-image" href="@Url.RouteUrl("ProductDetails", new { slug = product.Slug })" aria-label="View @product.Name" data-en-aria-label="View @product.Name" data-hi-aria-label="@product.NameHindi देखें">
+                    <img src="@product.ImageUrl" alt="@product.Name" loading="lazy" data-en-alt="@product.Name" data-hi-alt="@product.NameHindi" />
+                    <span class="product-image-brand" aria-hidden="true"><img src="~/images/surya-sugam-bakery-logo.svg" alt="" loading="lazy" /></span>
+                    @if (!string.IsNullOrWhiteSpace(product.Badge)) { <span class="card-badge" data-en="@product.Badge" data-hi="@product.BadgeHindi">@product.Badge</span> }
+                </a>
+                <a class="product-info" href="@Url.RouteUrl("ProductDetails", new { slug = product.Slug })"><div><h3><span data-en="@product.Name" data-hi="@product.NameHindi">@product.Name</span></h3><p><span data-en="@product.Description" data-hi="@product.DescriptionHindi">@product.Description</span></p></div><span class="product-price">@product.Price</span></a>
+                <a class="whatsapp-order-button" href="https://wa.me/918921986080?text=@message" target="_blank" rel="noopener noreferrer" data-wa-product data-product-en="@product.Name" data-product-hi="@product.NameHindi" data-product-price="@product.Price" aria-label="Order @product.Name on WhatsApp" data-en-aria-label="Order @product.Name on WhatsApp" data-hi-aria-label="@product.NameHindi का व्हाट्सऐप पर ऑर्डर करें">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 11.8a8.2 8.2 0 0 1-12.2 7.1L3 20l1.2-4.5a8.2 8.2 0 1 1 16-3.7Z" /><path d="M8.8 8.1c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4 0 .6.4.7 1 1.3 1.8 1.7.2.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4 0 .3-.2 1.1-.7 1.4-.5.4-1.1.5-1.8.3-1.1-.3-2.4-1-3.5-2.1-1-.9-1.7-2.1-2-3.1-.2-.7-.1-1.4.3-1.9Z" /></svg>
+                    <span data-en="Order on WhatsApp" data-hi="व्हाट्सऐप पर ऑर्डर करें">Order on WhatsApp</span>
+                </a>
+            </article>
+        }
+    </div>
+</section>

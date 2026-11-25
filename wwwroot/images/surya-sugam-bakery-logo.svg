@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 690" role="img" aria-labelledby="logo-title logo-description">
+  <title id="logo-title">Surya Sugam Quality Product SS Premium Quality</title>
+  <desc id="logo-description">Surya Sugam wordmark above a blue quality shield with gold SS lettering and a Premium Quality ribbon.</desc>
+  <defs>
+	<linearGradient id="wordmark" x1="0" y1="0" x2="0" y2="1">
+	  <stop offset="0" stop-color="#d9223c" />
+	  <stop offset=".58" stop-color="#a41642" />
+	  <stop offset="1" stop-color="#17265f" />
+	</linearGradient>
+	<linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+	  <stop offset="0" stop-color="#16b9c3" />
+	  <stop offset=".42" stop-color="#1389b4" />
+	  <stop offset="1" stop-color="#242d82" />
+	</linearGradient>
+	<linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+	  <stop offset="0" stop-color="#ffe27a" />
+	  <stop offset=".42" stop-color="#e9a926" />
+	  <stop offset=".72" stop-color="#ffd95d" />
+	  <stop offset="1" stop-color="#bf7614" />
+	</linearGradient>
+	<linearGradient id="ribbon" x1="0" y1="0" x2="0" y2="1">
+	  <stop offset="0" stop-color="#2252a4" />
+	  <stop offset="1" stop-color="#14276f" />
+	</linearGradient>
+	<filter id="soft-shadow" x="-15%" y="-15%" width="130%" height="140%">
+	  <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
+	  <feOffset dy="2" />
+	  <feComponentTransfer><feFuncA type="linear" slope=".25" /></feComponentTransfer>
+	  <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+	</filter>
+	<path id="ribbon-copy" d="M224 577 Q384 634 544 577" />
+  </defs>
+
+  <text x="384" y="164" text-anchor="middle" textLength="606" lengthAdjust="spacingAndGlyphs" fill="url(#wordmark)" stroke="#39213b" stroke-width="3" paint-order="stroke" font-family="Impact, 'Arial Narrow', sans-serif" font-size="122" font-weight="900" letter-spacing="-4">SURYA SUGAM</text>
+
+  <path d="M145 224h478c39 0 59 26 50 65l-31 145c-18 83-77 141-151 181l-91 49c-10 5-18 5-28 0l-91-49c-74-40-133-98-151-181L99 289c-9-39 7-65 46-65Z" fill="url(#shield)" stroke="#14aebe" stroke-width="16" />
+  <path d="M150 243h468c26 0 39 15 33 42l-31 144c-16 74-69 126-135 163l-88 48c-9 5-15 5-24 0l-88-48c-66-37-119-89-135-163l-31-144c-6-27 5-42 31-42Z" fill="none" stroke="#155393" stroke-width="5" />
+
+  <text x="384" y="314" text-anchor="middle" textLength="390" lengthAdjust="spacingAndGlyphs" fill="#fff" filter="url(#soft-shadow)" font-family="Arial, sans-serif" font-size="49" font-weight="700">Quality Product</text>
+  <text x="384" y="505" text-anchor="middle" textLength="281" lengthAdjust="spacingAndGlyphs" fill="url(#gold)" stroke="#a96b15" stroke-width="9" paint-order="stroke" filter="url(#soft-shadow)" font-family="Arial, sans-serif" font-size="188" font-style="italic" font-weight="900" letter-spacing="-12">SS</text>
+  <text x="384" y="505" text-anchor="middle" textLength="267" lengthAdjust="spacingAndGlyphs" fill="url(#gold)" stroke="#ffe17b" stroke-width="2" paint-order="stroke" font-family="Arial, sans-serif" font-size="188" font-style="italic" font-weight="900" letter-spacing="-12">SS</text>
+
+  <path d="m206 485-132 2 28 45-39 41 114 28 59-57Zm356 0 132 2-28 45 39 41-114 28-59-57Z" fill="url(#ribbon)" stroke="#173476" stroke-width="5" />
+  <path d="M166 505c72 35 143 52 218 52s146-17 218-52l47 72c-77 43-166 64-265 64s-188-21-265-64Z" fill="url(#ribbon)" stroke="#163a8a" stroke-width="7" />
+  <path d="M181 521c65 31 131 46 203 46s138-15 203-46" fill="none" stroke="#5480c3" stroke-width="3" opacity=".8" />
+  <text fill="#fff" font-family="Arial, sans-serif" font-size="39" font-weight="700" letter-spacing="-1.2" filter="url(#soft-shadow)"><textPath href="#ribbon-copy" startOffset="50%" text-anchor="middle">Premium Quality</textPath></text>
+</svg>

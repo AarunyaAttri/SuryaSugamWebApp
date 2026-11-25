@@ -1,0 +1,15 @@
+@model WebApplication2.Models.StorefrontViewModel
+
+<section class="newsletter-section" id="newsletter">
+    <div class="newsletter-copy"><p class="eyebrow" data-en="A note from the oven" data-hi="ओवन से एक संदेश">A note from the oven</p><h2><span data-en="Fresh bakes" data-hi="ताज़ा बेकरी">Fresh bakes</span><br /><span data-en="in your" data-hi="आपके">in your</span> <em data-en="inbox." data-hi="इनबॉक्स में।">inbox.</em></h2><p data-en="Get updates on Fans, CreamRoll, Toast, and the latest fresh batch from Mathura." data-hi="फैन, क्रीम रोल, टोस्ट और मथुरा की ताज़ा बेकरी की जानकारी पाएँ।">Get updates on Fans, CreamRoll, Toast, and the latest fresh batch from Mathura.</p></div>
+    <div class="newsletter-form-wrap">
+        @if (ViewData["NewsletterMessage"] is string message) { <p class="form-success" role="status">@message</p> }
+        <form asp-controller="Home" asp-action="Subscribe" method="post" class="newsletter-form">
+            <label asp-for="Newsletter.Email" class="visually-hidden">Email address</label>
+            <input asp-for="Newsletter.Email" type="email" placeholder="Your email address" data-en-placeholder="Your email address" data-hi-placeholder="आपका ईमेल पता" autocomplete="email" />
+            <button type="submit" aria-label="Sign up for the newsletter" data-en-aria-label="Sign up for the newsletter" data-hi-aria-label="ईमेल अपडेट के लिए जुड़ें"><span data-en="Join us" data-hi="जुड़ें">Join us</span> <span aria-hidden="true">→</span></button>
+            <span asp-validation-for="Newsletter.Email" class="field-error"></span>
+        </form>
+        <p class="newsletter-note" data-en="By signing up, you agree to receive occasional updates. You can unsubscribe at any time." data-hi="साइन अप करने पर आपको समय-समय पर अपडेट मिलेंगे। आप कभी भी सदस्यता रद्द कर सकते हैं।">By signing up, you agree to receive occasional updates. You can unsubscribe at any time.</p>
+    </div>
+</section>

@@ -1,0 +1,65 @@
+@model CartViewModel
+@{
+    ViewData["Title"] = "Your cart";
+    var cartMessage = TempData["CartMessage"] as string;
+}
+
+<div class="cart-page">
+    <div class="cart-heading"><div><p class="eyebrow" data-en="Fresh picks, all together" data-hi="आपकी पसंद, एक साथ">Fresh picks, all together</p><h1 data-en="Your cart" data-hi="आपका कार्ट">Your cart</h1></div><a class="text-link" asp-controller="Home" asp-action="Index"><span aria-hidden="true">←</span> <span data-en="Continue shopping" data-hi="खरीदारी जारी रखें">Continue shopping</span></a></div>
+    @if (!string.IsNullOrWhiteSpace(cartMessage))
+    {
+        <p class="cart-message" role="status">@cartMessage</p>
+    }
+    @if (Model.Items.Count == 0)
+    {
+        <section class="cart-empty-state"><span class="empty-cart-icon" aria-hidden="true">♧</span><h2 data-en="Your cart is waiting for something tasty." data-hi="आपका कार्ट स्वादिष्ट चीज़ों का इंतज़ार कर रहा है।">Your cart is waiting for something tasty.</h2><p data-en="Browse our Fans, CreamRoll, and Toast, then add your favourites here." data-hi="फैन, क्रीम रोल और टोस्ट देखें और अपनी पसंद यहाँ जोड़ें।">Browse our Fans, CreamRoll, and Toast, then add your favourites here.</p><a class="button button-dark" asp-controller="Home" asp-action="Index"><span data-en="Explore the fresh batch" data-hi="आज की ताज़ा बेकरी देखें">Explore the fresh batch</span> <span aria-hidden="true">↗</span></a></section>
+    }
+    else
+    {
+        <div class="cart-layout">
+            <section class="cart-items" aria-label="Items in your cart" data-en-aria-label="Items in your cart" data-hi-aria-label="आपके कार्ट के आइटम">
+                @foreach (var item in Model.Items)
+                {
+                    var sizeHindi = item.Size switch { "Pack of 2" => "2 का पैक", "Pack of 4" => "4 का पैक", "Pack of 8" => "8 का पैक", "1 piece" => "1 पीस", "Box of 4" => "4 का बॉक्स", "Box of 6" => "6 का बॉक्स", "200 g" => "200 ग्राम", "400 g" => "400 ग्राम", "800 g" => "800 ग्राम", _ => item.Size };
+                    var eggOptionHindi = item.EggOption == "Eggless" ? "अंडे रहित" : "सामान्य";
+                    <article class="cart-item">
+                        <a class="cart-item-image" asp-controller="Home" asp-action="Product" asp-route-slug="@item.Slug"><img src="@item.ImageUrl" alt="@item.Name" data-en-alt="@item.Name" data-hi-alt="@item.NameHindi" loading="lazy" /></a>
+                        <div class="cart-item-details">
+                            <div class="cart-item-top"><div><a class="cart-item-name" asp-controller="Home" asp-action="Product" asp-route-slug="@item.Slug"><span data-en="@item.Name" data-hi="@item.NameHindi">@item.Name</span></a><p class="cart-item-options"><span data-en="@item.Size" data-hi="@sizeHindi">@item.Size</span> · <span data-en="@item.EggOption" data-hi="@eggOptionHindi">@item.EggOption</span></p></div><strong class="cart-item-total">₹@((item.UnitPrice * item.Quantity).ToString("N0"))</strong></div>
+                            <p class="cart-delivery-details"><span data-en="Delivery:" data-hi="डिलीवरी:">Delivery:</span> @item.City, @item.Area · @item.DeliveryDate.ToString("dd MMM yyyy") · @item.TimeSlot</p>
+                            @if (!string.IsNullOrWhiteSpace(item.Message))
+                            {
+                                <p class="cart-message-note"><span data-en="Message:" data-hi="संदेश:">Message:</span> @item.Message</p>
+                            }
+                            <div class="cart-item-actions">
+                                <form asp-controller="Home" asp-action="UpdateCart" method="post" class="cart-quantity-form">
+                                    <input type="hidden" name="Id" value="@item.Id" />
+                                    <label class="visually-hidden" for="quantity-@item.Id">Quantity for @item.Name</label>
+                                    <input id="quantity-@item.Id" type="number" name="Quantity" value="@item.Quantity" min="1" max="20" />
+                                    <button type="submit" data-en="Update" data-hi="बदलें">Update</button>
+                                </form>
+                                <form asp-controller="Home" asp-action="RemoveFromCart" method="post">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <button class="cart-remove-button" type="submit" data-en="Remove" data-hi="हटाएँ">Remove</button>
+                                </form>
+                                <span class="cart-unit-price">₹@item.UnitPrice.ToString("N0") <span data-en="each" data-hi="प्रति आइटम">each</span></span>
+                            </div>
+                        </div>
+                    </article>
+                }
+            </section>
+            <aside class="cart-summary">
+                <h2 data-en="Order summary" data-hi="ऑर्डर का सार">Order summary</h2>
+                <div class="summary-row"><span><span data-en="Items" data-hi="आइटम">Items</span> (@Model.ItemCount)</span><span>₹@Model.Subtotal.ToString("N0")</span></div>
+                <div class="summary-row"><span data-en="Delivery" data-hi="डिलीवरी">Delivery</span><span data-en="Arranged separately" data-hi="अलग से तय होगी">Arranged separately</span></div>
+                <div class="summary-total"><strong data-en="Estimated total" data-hi="अनुमानित कुल">Estimated total</strong><strong>₹@Model.Subtotal.ToString("N0")</strong></div>
+                <p class="summary-note" data-en="Send your order to the bakery on WhatsApp. Delivery details will be confirmed by the shop." data-hi="अपना ऑर्डर व्हाट्सऐप पर भेजें। डिलीवरी की जानकारी दुकान से तय होगी।">Send your order to the bakery on WhatsApp. Delivery details will be confirmed by the shop.</p>
+                <form asp-controller="Home" asp-action="Checkout" method="post" target="_blank" data-cart-checkout>
+                    <input type="hidden" name="language" value="en" data-cart-checkout-language />
+                    <button class="whatsapp-order-button cart-whatsapp-button" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 11.8a8.2 8.2 0 0 1-12.2 7.1L3 20l1.2-4.5a8.2 8.2 0 1 1 16-3.7Z" /><path d="M8.8 8.1c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4 0 .6.4.7 1 1.3 1.8 1.7.2.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4 0 .3-.2 1.1-.7 1.4-.5.4-1.1.5-1.8.3-1.1-.3-2.4-1-3.5-2.1-1-.9-1.7-2.1-2-3.1-.2-.7-.1-1.4.3-1.9Z" /></svg><span data-en="Order on WhatsApp" data-hi="व्हाट्सऐप पर ऑर्डर करें">Order on WhatsApp</span></button>
+                </form>
+                <div class="cart-store-address"><strong>SuryaSugam Bakery</strong><address>Gomati Vihar, Lohaban Bagihi, Ward No.05 (Ram Nagar), Nagar Palika Mathura Food Safety Zone 2, Mathura, Uttar Pradesh -281001</address></div>
+            </aside>
+        </div>
+    }
+</div>

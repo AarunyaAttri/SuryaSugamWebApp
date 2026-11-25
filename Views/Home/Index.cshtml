@@ -1,0 +1,57 @@
+@model WebApplication2.Models.StorefrontViewModel
+@using WebApplication2.Models
+@{
+    ViewData["Title"] = "Fans, CreamRoll & Toast";
+    ViewData["NewsletterMessage"] = TempData["NewsletterMessage"];
+}
+
+@await Html.PartialAsync("~/Views/Home/Partials/_HeroSection.cshtml", Model)
+@await Html.PartialAsync("~/Views/Home/Partials/_ServiceStrip.cshtml")
+@await Html.PartialAsync("~/Views/Home/Partials/_CategorySection.cshtml", Model.Categories)
+@await Html.PartialAsync("~/Views/Home/Partials/_ProductSection.cshtml", new ProductSectionViewModel
+{
+    Id = "fans",
+    Eyebrow = "Flaky favourites for chai-time",
+    EyebrowHindi = "चाय के साथ कुरकुरे पसंदीदा",
+    Title = "Fresh from our oven: Fans.",
+    TitleHindi = "हमारे ओवन से ताज़ा: फैन।",
+    Description = "Golden layers and savoury fillings, baked for your everyday tea break.",
+    DescriptionHindi = "सुनहरी परतें और स्वादिष्ट भरावन — आपकी रोज़ की चाय के लिए।",
+    LinkLabel = "Explore Fans",
+    LinkLabelHindi = "फैन देखें",
+    LinkUrl = "#fans",
+    Products = Model.Fans
+})
+<section class="celebration-banner"><p class="eyebrow" data-en="A Mathura tea-time favourite" data-hi="मथुरा का चाय-समय पसंदीदा">A Mathura tea-time favourite</p><h2><span data-en="Make room for" data-hi="थोड़ी जगह रखें">Make room for</span> <em data-en="one more bite." data-hi="एक और निवाले के लिए।">one more bite.</em></h2><a href="#toast" class="text-link"><span data-en="Find your Toast" data-hi="अपना टोस्ट चुनें">Find your Toast</span> <span aria-hidden="true">→</span></a></section>
+@await Html.PartialAsync("~/Views/Home/Partials/_ProductSection.cshtml", new ProductSectionViewModel
+{
+    Id = "toast",
+    Eyebrow = "Crisp, golden, ready to share",
+    EyebrowHindi = "कुरकुरा, सुनहरा और बाँटने के लिए तैयार",
+    Title = "A little crunch with your chai.",
+    TitleHindi = "आपकी चाय के साथ थोड़ा कुरकुरापन।",
+    Description = "From lightly crisp slices to fruit-filled favourites, find your perfect Toast.",
+    DescriptionHindi = "हल्के कुरकुरे स्लाइस से लेकर फलों वाले टोस्ट तक — अपना पसंदीदा चुनें।",
+    LinkLabel = "Explore Toast",
+    LinkLabelHindi = "टोस्ट देखें",
+    LinkUrl = "#toast",
+    Products = Model.Toasts
+})
+@await Html.PartialAsync("~/Views/Home/Partials/_ProductSection.cshtml", new ProductSectionViewModel
+{
+    Id = "creamroll",
+    Eyebrow = "Soft, swirled, and creamy",
+    EyebrowHindi = "मुलायम, घुमावदार और क्रीमी",
+    Title = "Meet your CreamRoll.",
+    TitleHindi = "पेश है हमारा क्रीम रोल।",
+    Description = "A soft roll with a smooth cream filling, freshly made for your tea break.",
+    DescriptionHindi = "मुलायम क्रीम से भरा रोल, आपकी चाय के साथ ताज़ा तैयार।",
+    LinkLabel = "Explore CreamRoll",
+    LinkLabelHindi = "क्रीम रोल देखें",
+    LinkUrl = "#creamroll",
+    Products = Model.CreamRolls
+})
+@await Html.PartialAsync("~/Views/Home/Partials/_CustomOrderSection.cshtml", Model.CustomOrder)
+@await Html.PartialAsync("~/Views/Home/Partials/_TeaTimeFeature.cshtml")
+@await Html.PartialAsync("~/Views/Home/Partials/_TestimonialSection.cshtml", Model.Testimonials)
+@await Html.PartialAsync("~/Views/Home/Partials/_NewsletterSection.cshtml", Model)

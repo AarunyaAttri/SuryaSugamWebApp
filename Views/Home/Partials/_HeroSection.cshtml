@@ -1,0 +1,26 @@
+@model WebApplication2.Models.StorefrontViewModel
+
+<section class="hero-section" id="home">
+    <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span><span data-en="@Model.HeroEyebrow" data-hi="@Model.HeroEyebrowHindi">@Model.HeroEyebrow</span></p>
+        <h1><span data-en="@Model.HeroTitle" data-hi="@Model.HeroTitleHindi">@Model.HeroTitle</span></h1>
+        <p class="hero-description"><span data-en="@Model.HeroDescription" data-hi="@Model.HeroDescriptionHindi">@Model.HeroDescription</span></p>
+        <div class="hero-actions">
+            <a class="button button-dark" href="#fans"><span data-en="Find your treat" data-hi="अपना पसंदीदा चुनें">Find your treat</span> <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-note"><span class="note-icon" aria-hidden="true">✳</span><span><span data-en="Made fresh every morning" data-hi="हर सुबह ताज़ा तैयार">Made fresh every morning</span><br /><strong data-en="with the good stuff." data-hi="अच्छी सामग्री से।">with the good stuff.</strong></span></div>
+    </div>
+    <div class="hero-art" data-hero-slideshow data-interval="4000" role="region" aria-roledescription="carousel" aria-label="Freshly baked favourites from SuryaSugam Bakery">
+        <img class="is-active" src="@Model.HeroImageUrl" alt="Freshly baked Fans, packaged for tea-time" data-en-alt="Freshly baked Fans, packaged for tea-time" data-hi-alt="चाय के लिए पैक किए गए ताज़ा फैन" data-hero-slide aria-hidden="false" fetchpriority="high" />
+        <img src="~/images/package.jpeg" alt="Freshly packed SuryaSugam bakery products" data-en-alt="Freshly packed SuryaSugam bakery products" data-hi-alt="सूर्यसुगम बेकरी के ताज़ा पैक किए गए उत्पाद" data-hero-slide aria-hidden="true" />
+        <img src="~/images/patty.jpeg" alt="Freshly baked patties" data-en-alt="Freshly baked patties" data-hi-alt="ताज़ा बेक किए हुए पैटीज़" data-hero-slide aria-hidden="true" />
+        <img src="~/images/packet.jpeg" alt="Packets of SuryaSugam bakery snacks" data-en-alt="Packets of SuryaSugam bakery snacks" data-hi-alt="सूर्यसुगम बेकरी के स्नैक्स के पैकेट" data-hero-slide aria-hidden="true" />
+        <div class="hero-stamp"><span data-en="GOOD THINGS" data-hi="अच्छी चीज़ें">GOOD THINGS</span><strong data-en="are baking" data-hi="बन रही हैं">are baking</strong><span data-en="MADE WITH LOVE · MATHURA" data-hi="प्यार से बना · मथुरा">MADE WITH LOVE · MATHURA</span></div>
+        <div class="hero-slideshow-controls">
+            <button type="button" data-hero-previous aria-label="Previous photo" data-en-aria-label="Previous photo" data-hi-aria-label="पिछली तस्वीर">←</button>
+            <button type="button" data-hero-toggle aria-label="Pause slideshow" data-en-aria-label="Pause slideshow" data-hi-aria-label="स्लाइड शो रोकें" aria-pressed="false">Ⅱ</button>
+            <button type="button" data-hero-next aria-label="Next photo" data-en-aria-label="Next photo" data-hi-aria-label="अगली तस्वीर">→</button>
+        </div>
+        <div class="hero-image-caption"><span data-hero-counter>01 / 04</span><span data-en="Fresh from our oven" data-hi="हमारे ओवन से ताज़ा">Fresh from our oven</span></div>
+    </div>
+</section>
