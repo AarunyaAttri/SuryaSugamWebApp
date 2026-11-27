@@ -10,7 +10,15 @@ using WebApplication2.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-var configuredDatabasePath = builder.Configuration["Database:Path"] ?? Path.Combine("App_Data", "suryasugam.db");
+var configuredDatabasePath = builder.Configuration["Database:Path"];
+if (string.IsNullOrWhiteSpace(configuredDatabasePath))
+{
+    var azureHome = Environment.GetEnvironmentVariable("HOME");
+    var isAzureAppService = !string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+    configuredDatabasePath = isAzureAppService && !string.IsNullOrWhiteSpace(azureHome)
+        ? Path.Combine(azureHome, "data", "suryasugam.db")
+        : Path.Combine("App_Data", "suryasugam.db");
+}
 var databasePath = Path.IsPathRooted(configuredDatabasePath)
     ? configuredDatabasePath
     : Path.Combine(builder.Environment.ContentRootPath, configuredDatabasePath);
